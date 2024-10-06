@@ -2,19 +2,22 @@
   "name": "redis-experiments",
   "version": "1.0.0",
   "description": "Experiments with Redis in a Node Environment",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon js.server/app.js",
     "test": "nodemon js.server/app.js --mocha",
-    "mocha": "mocha"
+    "mocha": "mocha",
+    "redis-server-dev": "nodemon js.server/app.js -redis-server",
+    "redis-client-dev": "nodemon js.server/app.js -redis-client"
   },
   "keywords": [],
   "author": "kos5667",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "redis": "^4.6.14"
+    "redis": "^4.6.14",
+    "async": "^3.2.6"
   },
   "devDependencies": {
     "chai": "^5.1.0",
