@@ -23,7 +23,7 @@ const configurationOptions: ConfigurationOptions = {
  * Initialize Application
  */
 async.waterfall([
-    function (next): void {
+    function (next: async.ErrorCallback<null>): void {
         console.info('┌────────────────────────────────────────────────────────┐')
         console.info('│            Redis Server is up and running!!            │')
         console.info('└────────────────────────────────────────────────────────┘')

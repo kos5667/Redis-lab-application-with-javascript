@@ -2,14 +2,11 @@
   "name": "redis-experiments",
   "version": "1.0.0",
   "description": "Experiments with Redis in a Node Environment",
-  "main": "src/app.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "node src/app.ts",
-    "dev": "nodemon js.server/app.js",
-    "test": "nodemon js.server/app.js --mocha",
-    "mocha": "mocha",
-    "redis-server-dev": "nodemon js.server/app.ts -redis-server",
-    "redis-client-dev": "nodemon js.server/app.ts -redis-client"
+    "start": "ts-node src/index.ts",
+    "redis-server-dev": "nodemon -redis-server",
+    "redis-client-dev": "nodemon -redis-client"
   },
   "keywords": [],
   "author": "kos5667",
