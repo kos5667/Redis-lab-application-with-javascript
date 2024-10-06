@@ -1,6 +1,7 @@
-const express = require('express');
-const async = require('async');
-const { createClient } = require('redis')
+// import express, { Request, Response } from 'express';
+import async from 'async';
+import { createClient, RedisClientType } from 'redis';
+
 
 /**
  * isRedisClient: {true, false} // Redis Client 서버
@@ -8,7 +9,12 @@ const { createClient } = require('redis')
  *
  * @type {undefined}
  */
-const configurationOptions = {
+interface ConfigurationOptions {
+    isRedisClient: boolean;
+    isRedisServer: boolean;
+}
+
+const configurationOptions: ConfigurationOptions = {
     isRedisClient: false,   // Redis Client
     isRedisServer: false    // Redis Server
 };
@@ -17,7 +23,7 @@ const configurationOptions = {
  * Initialize Application
  */
 async.waterfall([
-    function (next) {
+    function (next): void {
         console.info('┌────────────────────────────────────────────────────────┐')
         console.info('│            Redis Server is up and running!!            │')
         console.info('└────────────────────────────────────────────────────────┘')
@@ -26,9 +32,8 @@ async.waterfall([
 
     /**
      * Load Configuration
-     * @param next
      */
-    function LoadConfiguration (next) {
+    function LoadConfiguration (next: async.ErrorCallback<null>) {
         for (let i = 1; i < process.argv.length; i++) {
             switch (process.argv[i]) {
                 case '-redis-server':
@@ -44,7 +49,13 @@ async.waterfall([
         next(null);
     },
 
-    function CreateRedisClient() {
+    function CreateRedisClient(next: async.ErrorCallback<null>) {
 
     }
-])
+], (err) => {
+    if (err) {
+        console.error('An error occurred:', err);
+    } else {
+        console.info('Application initialized successfully.');
+    }
+})
