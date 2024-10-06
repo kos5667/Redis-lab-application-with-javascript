@@ -1,0 +1,12 @@
+{
+  "name": "redis-experiments",
+  "version": "1.0.0",
+  "description": "Experiments with Redis in a Node Environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
