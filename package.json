@@ -2,11 +2,23 @@
   "name": "redis-experiments",
   "version": "1.0.0",
   "description": "Experiments with Redis in a Node Environment",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon js.server/app.js",
+    "test": "nodemon js.server/app.js --mocha",
+    "mocha": "mocha"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "kos5667",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "redis": "^4.6.14"
+  },
+  "devDependencies": {
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0",
+    "nodemon": "^3.1.0"
+  }
 }
